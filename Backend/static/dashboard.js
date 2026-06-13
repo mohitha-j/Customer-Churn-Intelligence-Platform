@@ -23,6 +23,26 @@ async function loadDashboardStats() {
         );
 
         const data = await response.json();
+        document.getElementById(
+    "persona"
+).innerText =
+    result.persona;
+
+document.getElementById(
+    "revenueRiskPrediction"
+).innerText =
+    "$" + result.revenue_at_risk;
+
+document.getElementById(
+    "recommendations"
+).innerHTML =
+
+result.recommendations
+.map(
+    item =>
+    `<li>${item}</li>`
+)
+.join("");
         
 
 
