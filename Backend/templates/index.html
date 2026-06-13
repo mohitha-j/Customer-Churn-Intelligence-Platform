@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Churn Intelligence Platform</title>
+
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>Customer Churn Intelligence Platform</h1>
+        <p>
+            XGBoost • FastAPI • SHAP • Customer Retention Analytics
+        </p>
+    </header>
+
+    <section class="kpi-grid">
+
+        <div class="card">
+            <h3>Total Customers</h3>
+            <h2 id="totalCustomers">7043</h2>
+        </div>
+
+        <div class="card">
+            <h3>Predicted Churn Risk</h3>
+            <h2 id="churnRate">--%</h2>
+        </div>
+
+        <div class="card">
+            <h3>Revenue At Risk</h3>
+            <h2 id="revenueRisk">$--</h2>
+        </div>
+
+        <div class="card">
+            <h3>Customer Lifetime Value</h3>
+            <h2 id="cltv">$--</h2>
+        </div>
+
+    </section>
+
+    <section class="main-grid">
+
+        <div class="card">
+
+            <h2>Customer Churn Prediction</h2>
+
+            <form id="predictionForm">
+                <div class="form-group">
+    <label>Satisfaction Score (1-5)</label>
+    <input
+        type="number"
+        id="satisfaction"
+        min="1"
+        max="5"
+        value="3"
+        required
+    >
+</div>
+
+<div class="form-group">
+    <label>Number of Referrals</label>
+    <input
+        type="number"
+        id="referrals"
+        min="0"
+        value="0"
+        required
+    >
+</div>
+
+                <label>Age</label>
+                <input
+    type="number"
+    id="age"
+    min="18"
+    max="90"
+    value="35"
+    required
+>
+                <label>Tenure (Months)</label>
+                <input type="number" id="tenure" value="12">
+
+                <label>Monthly Charges</label>
+                <input type="number" id="monthlyCharge" value="75">
+
+                <label>Contract</label>
+                <select id="contract">
+                    <option>Month-to-Month</option>
+                    <option>One Year</option>
+                    <option>Two Year</option>
+                </select>
+
+                <label>Internet Type</label>
+                <select id="internetType">
+                    <option>Fiber Optic</option>
+                    <option>DSL</option>
+                    <option>Cable</option>
+                </select>
+
+                <label>Payment Method</label>
+                <select id="paymentMethod">
+                    <option>Bank Withdrawal</option>
+                    <option>Credit Card</option>
+                    <option>Mailed Check</option>
+                </select>
+
+                <button type="submit">
+                    Predict Churn Risk
+                </button>
+
+            </form>
+
+        </div>
+
+        <div class="card result-card">
+            <h3>Top Risk Drivers</h3>
+
+<ul id="riskDrivers"></ul>
+
+            <h2>Prediction Result</h2>
+
+            <div class="result-box">
+
+                <h1 id="riskScore">--%</h1>
+
+                <span id="riskLevel" class="badge">
+                    Waiting...
+                </span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <section class="chart-grid">
+
+        <div class="card">
+            <h2>Feature Importance</h2>
+            <canvas id="featureChart"></canvas>
+        </div>
+
+        <div class="card">
+            <h2>Customer Risk Distribution</h2>
+            <canvas id="riskChart"></canvas>
+        </div>
+
+    </section>
+    
+
+    <script src="dashboard.js"></script>
+
+</body>
+
+</html>
