@@ -112,10 +112,6 @@ document.getElementById(
 ).innerText =
     result.persona;
 
-document.getElementById(
-    "revenueRiskPrediction"
-).innerText =
-    "$" + result.revenue_at_risk;
 
 document.getElementById(
     "recommendations"
